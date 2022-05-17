@@ -1,0 +1,145 @@
+***********************************************************class main**************************************************
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+
+        //q1*************************************************
+
+       System.out.println("enter first number:");
+        int num1=in.nextInt();
+        System.out.println("Enter the second number:");
+        int num2=in.nextInt();
+        System.out.println("The divide result is:" + div(num1,num2));
+
+        //q2*************************************************
+
+      System.out.println("Enter the price:");
+        int price=in.nextInt();
+
+
+            if (price<=100||price>=500){
+                throw new ArithmeticException("Must be range between 100 and 500");}
+            else
+                System.out.println("tax is:" + calculateTax(price));
+
+
+        //q3*************************************************
+        Circle cercle =new Circle(5.6);
+        System.out.println(cercle.getRadius());
+        System.out.println(cercle.getCircumference());
+        System.out.println(cercle.Area());
+        System.out.println(cercle.toString());
+
+        //q4************************************************
+
+        Customer customer=new Customer(1111,"ahmed",'f');
+         System.out.println("enter your id number:");
+         int id= in.nextInt();
+         System.out.println("enter your name");
+         String name1=in.next();
+         System.out.println("enter your gender m ar f");
+         char gender=in.next().charAt(0);
+         Customer customer1=new Customer(id,name1,gender);
+
+         System.out.println(customer.toString());
+         System.out.println(customer.getId());
+         System.out.println(customer.getName());
+         System.out.println(customer.getGender());
+
+
+        //q5*********************************************
+
+        Point P1=new Point();
+        PolyLine P2=new PolyLine();
+
+        System.out.println(P2.toString());
+
+
+    }
+   //q2 method************************************************
+    public static int calculateTax(int price){
+        int tax=price*15/100;
+        return tax;
+    }
+    //q1 method
+    public static int div(int num1, int num2)throws RuntimeException{
+        if (num2==0)
+            throw new ArithmeticException("you can't divided by zero please enter another number");
+            return num1/num2;
+        }
+
+}
+****************************************************class circle****************************************************
+public class Circle {
+    private double radius = 1.0;
+
+
+    public Circle(){  }
+    public Circle(double radius){
+    this.radius=radius;}
+
+    public double getRadius(){return this.radius;}
+    public void setRadius(double radius){this.radius=radius;}
+    public double Area(){
+        double area=Math.PI * (radius * radius);
+        return  area;  }
+    public double getCircumference(){
+        double circumference= Math.PI * 2*radius;
+        return  circumference;  }
+    public String toString(){  return "the radius is: "+radius;    }
+
+}
+**********************************************class customer*********************************************************
+public class Circle {
+    private double radius = 1.0;
+
+
+    public Circle(){  }
+    public Circle(double radius){
+    this.radius=radius;}
+
+    public double getRadius(){return this.radius;}
+    public void setRadius(double radius){this.radius=radius;}
+    public double Area(){
+        double area=Math.PI * (radius * radius);
+        return  area;  }
+    public double getCircumference(){
+        double circumference= Math.PI * 2*radius;
+        return  circumference;  }
+    public String toString(){  return "the radius is: "+radius;    }
+
+}
+*************************************************class point**********************************************************
+public class Point {
+  private int x;
+  private int y;
+}
+*************************************************class polyList********************************************************
+import java.util.ArrayList;
+import java.util.List;
+
+public class PolyLine {
+     private ArrayList<Point> points=new ArrayList<Point>(); ;
+
+
+    public PolyLine(){}
+    public PolyLine (List<Point> points){ new ArrayList<Point>();}
+    public void appendPoin(int x,int y){}
+    public void appendPoint(Point point){points.add(point);}
+    public String toString(){
+       // return "point"+points;
+
+
+
+         return "{(1,2)(3,4)}";
+
+      //  return points.toString();
+
+    }
+    public double getLength(){
+
+        return points.size();}
+
+
+}
